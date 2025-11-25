@@ -8,26 +8,31 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function index(){
-        return view('admin.login');
+    public function index()
+    {
+        return view("admin.login");
     }
-    public function logout(Request $request){
-
+    public function logout(Request $request)
+    {
+        Auth::guard("admin")->logout();
+        return redirect(route("login"));
     }
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+            "email" => ["required", "email"],
+            "password" => ["required"],
         ]);
 
-        if (Auth::guard('admin')->attempt($credentials)) {
+        if (Auth::guard("admin")->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended(route('home'));
+            return redirect()->intended(route("home"));
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        return back()
+            ->withErrors([
+                "email" => "The provided credentials do not match our records.",
+            ])
+            ->onlyInput("email");
     }
 }
