@@ -189,6 +189,12 @@
                             <p>Categories</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{route('films.index')}}" class="nav-link">
+                            <i class="bi bi-android2"></i>
+                            <p>Films</p>
+                        </a>
+                    </li>
                 </ul>
                 <!--end::Sidebar Menu-->
             </nav>

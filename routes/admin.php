@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\FilmController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,5 @@ Route::middleware(["auth:admin"])->group(function () {
     Route::get("/", [MainController::class, "index"])->name("home");
     Route::resource("countries", CountryController::class)->except("show");
     Route::resource("categories", CategoryController::class)->except("show");
+    Route::resource("films", FilmController::class);
 });
