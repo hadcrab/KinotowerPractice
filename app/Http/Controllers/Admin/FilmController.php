@@ -34,7 +34,7 @@ class FilmController extends Controller
 
     public function create()
     {
-        return view("admin.films.create", [
+        return view("admin.films.form", [
             "countries" => Country::all(),
             "categories" => Category::all(),
         ]);
@@ -62,7 +62,7 @@ class FilmController extends Controller
 
     public function edit(Film $film)
     {
-        return view("admin.films.edit", [
+        return view("admin.films.form", [
             "film" => $film,
             "countries" => Country::all(),
             "categories" => Category::all(),

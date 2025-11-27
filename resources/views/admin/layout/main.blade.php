@@ -195,6 +195,7 @@
                             <p>Films</p>
                         </a>
                     </li>
+
                 </ul>
                 <!--end::Sidebar Menu-->
             </nav>
