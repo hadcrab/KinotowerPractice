@@ -14,18 +14,20 @@ class Review extends Model
      *
      * @var list<string>
      */
-    protected $fillable = [
-        'film_id',
-        'user_id',
-        'message',
-        'is_approved'
-    ];
+    protected $fillable = ["film_id", "user_id", "message", "is_approved"];
 
-    public function film() {
+    public function film()
+    {
         return $this->belongsTo(Film::class);
     }
 
-    public function rating() {
+    public function rating()
+    {
         return $this->belongsTo(Rating::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
