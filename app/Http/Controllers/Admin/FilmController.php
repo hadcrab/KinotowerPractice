@@ -25,6 +25,15 @@ class FilmController extends Controller
 
         $films = $query->paginate(10);
 
+        $films->load([
+            "reviews" => function ($q) {
+                $q->with("user")->orderByDesc("created_at");
+            },
+            "ratings" => function ($q) {
+                $q->with("user")->orderByDesc("created_at");
+            },
+        ]);
+
         return view("admin.films.index", [
             "films" => $films,
             "countries" => Country::all(),
@@ -94,5 +103,30 @@ class FilmController extends Controller
     {
         $film->delete();
         return redirect()->route("films.index");
+    }
+
+    public function approveReview($reviewId)
+    {
+        $review = \App\Models\Review::findOrFail($reviewId);
+        $review->is_approved = true;
+        $review->save();
+
+        return redirect()->back();
+    }
+
+    public function deleteReview($reviewId)
+    {
+        $review = \App\Models\Review::findOrFail($reviewId);
+        $review->delete();
+
+        return redirect()->back();
+    }
+
+    public function deleteRating($ratingId)
+    {
+        $rating = \App\Models\Rating::findOrFail($ratingId);
+        $rating->delete();
+
+        return redirect()->back();
     }
 }

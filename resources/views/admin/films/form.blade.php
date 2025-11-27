@@ -5,7 +5,7 @@
 <div class="content-wrapper p-3">
 <section class="content-header">
 <div class="container-fluid">
-<h1>{{ isset($film) ? 'Редактировать фильм' : 'Добавить фильм' }}</h1>
+<h1>{{ isset($film) ? 'Edit film' : 'Add film' }}</h1>
 </div>
 </section>
 
@@ -13,7 +13,7 @@
 <section class="content">
 <div class="card card-primary">
 <div class="card-header">
-<h3 class="card-title">{{ isset($film) ? 'Редактирование' : 'Создание' }}</h3>
+<h3 class="card-title">{{ isset($film) ? 'Edit' : 'Create' }}</h3>
 </div>
 
 
@@ -24,13 +24,13 @@
 
 <div class="card-body">
 <div class="form-group">
-<label>Название</label>
+<label>Name</label>
 <input type="text" name="name" class="form-control" value="{{ $film->name ?? '' }}" required>
 </div>
 <div class="form-group">
-<label>Страна</label>
+<label>Country</label>
 <select name="country_id" class="form-control" required>
-<option disabled selected>Выберите страну</option>
+<option disabled selected>Select Country</option>
 @foreach($countries as $country)
 <option value="{{ $country->id }}" @if(isset($film) && $film->country_id == $country->id) selected @endif>
 {{ $country->name }}
@@ -39,27 +39,27 @@
 </select>
 </div>
 <div class="form-group">
-<label>Длительность (мин)</label>
+<label>Longness</label>
 <input type="number" name="duration" class="form-control" value="{{ $film->duration ?? '' }}" required>
 </div>
 <div class="form-group">
-<label>Год выпуска</label>
+<label>Year</label>
 <input type="number" name="year_of_issue" class="form-control" value="{{ $film->year_of_issue ?? '' }}" required>
 </div>
 <div class="form-group">
-<label>Возрастной рейтинг</label>
+<label>Adulting</label>
 <input type="text" name="age" class="form-control" value="{{ $film->age ?? '' }}" required>
 </div>
 <div class="form-group">
-<label>Постер (URL)</label>
+<label>Poster (URL)</label>
 <input type="text" name="link_img" class="form-control" value="{{ $film->link_img ?? '' }}">
 </div>
 <div class="form-group">
-<label>Кинопоиск (URL)</label>
+<label>Kinopoisk (URL)</label>
 <input type="text" name="link_kinopoisk" class="form-control" value="{{ $film->link_kinopoisk ?? '' }}">
 </div>
 <div class="form-group">
-<label>Видео (URL)</label>
+<label>Video (URL)</label>
 <input type="text" name="link_video" class="form-control" value="{{ $film->link_video ?? '' }}">
 </div>
 </div>

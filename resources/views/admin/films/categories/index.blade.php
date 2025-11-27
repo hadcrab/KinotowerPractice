@@ -4,11 +4,11 @@
 
 <div class="container-fluid">
 
-    <h3 class="mb-4">Жанры фильма: <strong>{{ $film->name }}</strong></h3>
+    <h3 class="mb-4">Geners: <strong>{{ $film->name }}</strong></h3>
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Добавить новый жанр</h3>
+            <h3 class="card-title">Add new gener</h3>
         </div>
 
         <div class="card-body">
@@ -35,7 +35,7 @@
 
     <div class="card mt-4">
         <div class="card-header">
-            <h3 class="card-title">Присвоенные жанры</h3>
+            <h3 class="card-title">Genrs:</h3>
         </div>
 
         <div class="card-body">
@@ -43,8 +43,8 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>Название</th>
-                    <th width="150px">Действия</th>
+                    <th>Name</th>
+                    <th width="150px">Actions</th>
                 </tr>
                 </thead>
 
@@ -59,7 +59,7 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button class="btn btn-danger btn-sm">Удалить</button>
+                                <button class="btn btn-danger btn-sm">Delete</button>
                             </form>
                         </td>
                     </tr>
